@@ -1,4 +1,3 @@
-
 let board = [
 	['', '', ''],
 	['', '', ''],
@@ -41,7 +40,8 @@ function checkWinner() {
 		winner = board[2][0];
 	}
 }
-function MouseClick() {
+
+function mousePressed() {
 	if (iPlayer == FirstPlayer) {
 		let i = floor(mouseX / w);
 		let j = floor(mouseY / h);
@@ -80,7 +80,7 @@ function draw() {
 				line(x - r, y - r, x + r, y + r);
 				line(x + r, y - r, x - r, y + r);
 			}
-		}
+	}
 	}
 	
 }
