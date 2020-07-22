@@ -16,29 +16,42 @@ function setup() {
 	w = width / 3;
 	h = height / 3;
 }
-function equals(a, b, c) {
+function Equals(a, b, c) {
 	if(a == b && b == c && a != '')
 		return 1;
 }
 
-function checkWinner() {
+function CheckWinner() {
 	let winner = null;
 	for (let i = 0; i < 3; i++) {
-		if (equals(board[i][0], board[i][1], board[i][2])) {
+		if (Equals(board[i][0], board[i][1], board[i][2])) {
 			winner = board[i][0];
+			return winner;
 		}
 	}
 	for (let i = 0; i < 3; i++) {
-		if (equals(board[0][i], board[1][i], board[2][i])) {
+		if (Equals(board[0][i], board[1][i], board[2][i])) {
 			winner = board[0][i];
+			return winner;
 		}
 	}
-	if (equals(board[0][0], board[1][1], board[2][2])) {
+	if (Equals(board[0][0], board[1][1], board[2][2])) {
 		winner = board[0][0];
+		return winner;
 	}
-	if (equals(board[2][0], board[1][1], board[0][2])) {
+	if (Equals(board[2][0], board[1][1], board[0][2])) {
 		winner = board[2][0];
+		return winner;
 	}
+	let chm = 0;
+	for (let i = 0; i < 3; i++) {
+		for (let j = 0; j < 3; j++) {
+			if(board[i][j]!='')
+				chm+=1;
+		}
+	}
+	if(chm==9)
+		return 'Tie';
 }
 
 function mousePressed() {
@@ -60,7 +73,8 @@ function mousePressed() {
 }
 
 function draw() {
-	background(80);
+	colorMode(HSB);
+	background(244, 45, 250);
 	strokeWeight(1);
 	line(w, 0, w, height);
 	line(w * 2, 0, w * 2, height);
@@ -80,7 +94,20 @@ function draw() {
 				line(x - r, y - r, x + r, y + r);
 				line(x + r, y - r, x - r, y + r);
 			}
+		}
 	}
+	let GameOver = CheckWinner();
+	let OutputText = createP('');
+	if(GameOver=='X'){
+		noLoop();
+		OutputText.html('X Win!').style('color','#800080').style('font-size','64pt');
 	}
-	
+	else if(GameOver=='O'){
+		noLoop();
+		OutputText.html('O Win!').style('color','#800080').style('font-size','64pt');
+	}
+	else if(GameOver=='Tie'){
+		noLoop();
+		OutputText.html('Tie!').style('color','#800080').style('font-size','64pt');
+	}
 }
