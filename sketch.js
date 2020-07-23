@@ -100,14 +100,14 @@ function draw() {
 	let OutputText = createP('');
 	if(GameOver=='X'){
 		noLoop();
-		OutputText.html('X Win!').style('color','#800080').style('font-size','64pt');
+		OutputText.html('X Win!').style('position','absolute').style('top','400px').style('color','#800080').style('font-size','40pt');
 	}
 	else if(GameOver=='O'){
 		noLoop();
-		OutputText.html('O Win!').style('color','#800080').style('font-size','64pt');
+		OutputText.html('O Win!').style('color','#800080').style('font-size','40pt');
 	}
 	else if(GameOver=='Tie'){
 		noLoop();
-		OutputText.html('Tie!').style('color','#800080').style('font-size','64pt');
+		OutputText.html('Tie!').style('color','#800080').style('font-size','40pt');
 	}
 }
