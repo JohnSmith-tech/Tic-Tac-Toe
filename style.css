@@ -1,18 +1,12 @@
-body
-{
-    background-color: #7FFFD4;
-}
-h1
-{
-    color: #800080;
-    text-align: center;
-    font-family: "Times New Roman";
-    font-size: 70px;
-}
 canvas {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    border: 3px solid black;
+    padding: 0;
+    margin: auto;
     display: block;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 350px
 }
