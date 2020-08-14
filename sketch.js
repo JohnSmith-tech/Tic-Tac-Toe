@@ -98,7 +98,17 @@ function draw() {
 	}
 	let GameOver = CheckWinner();
 	let OutputText = createP('');
-	if(GameOver=='X'){
+	
+	if(GameOver!=null){
+		noLoop();
+		if(GameOver=='X')
+			OutputText.html('X Win!').style('position','absolute').style('top','400px').style('color','#800080').style('font-size','40pt');
+		else if(GameOver=='O')
+			OutputText.html('O Win!').style('position','absolute').style('top','400px').style('color','#800080').style('font-size','40pt');
+		else if(GameOver=='Tie')
+			OutputText.html('Tie!').style('position','absolute').style('top','400px').style('color','#800080').style('font-size','40pt');
+	}
+	/*if(GameOver=='X'){
 		noLoop();
 		OutputText.html('X Win!').style('position','absolute').style('top','400px').style('color','#800080').style('font-size','40pt');
 	}
@@ -110,4 +120,5 @@ function draw() {
 		noLoop();
 		OutputText.html('Tie!').style('color','#800080').style('font-size','40pt');
 	}
+	 */
 }
